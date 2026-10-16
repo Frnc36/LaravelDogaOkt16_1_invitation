@@ -13,7 +13,7 @@ class TraderController extends Controller
      */
     public function index()
     {
-        //
+        return Trader::all();
     }
 
     /**
@@ -29,7 +29,7 @@ class TraderController extends Controller
      */
     public function store(StoreTraderRequest $request)
     {
-        //
+        return Trader::create($request->all());
     }
 
     /**
@@ -37,7 +37,7 @@ class TraderController extends Controller
      */
     public function show(Trader $trader)
     {
-        //
+        return $trader;
     }
 
     /**
@@ -53,7 +53,8 @@ class TraderController extends Controller
      */
     public function update(UpdateTraderRequest $request, Trader $trader)
     {
-        //
+        $trader->fill($request->all())->save();
+        return $trader;
     }
 
     /**
@@ -61,6 +62,7 @@ class TraderController extends Controller
      */
     public function destroy(Trader $trader)
     {
-        //
+        $trader->delete();
+        return response()->json(['message' => 'Trader törölve']);
     }
 }
