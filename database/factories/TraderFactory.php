@@ -19,7 +19,7 @@ class TraderFactory extends Factory
     {
         return [
             //['name', 'description', 'country']
-            'name' => fake()->userName(),
+            'name' => fake('hu_HU')->firstName(),
             'description' => fake()->sentence(5),
             'country' => fake()->country()
         ];

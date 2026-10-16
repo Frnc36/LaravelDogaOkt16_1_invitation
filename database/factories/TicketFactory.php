@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Event;
 use App\Models\Ticket;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -22,7 +23,7 @@ class TicketFactory extends Factory
         return [
             //['user_id', 'event_id', 'status']
             'user_id' => User::all()->random()->id,
-            //'event_id' => Event::all()->random()->id,
+            'event_id' => Event::all()->random()->id,
             'status' => fake()->numberBetween(0, 1),
 
         ];
